@@ -6,7 +6,7 @@ const api=axios.create({
 })
 
 
-export async function register(username,email,password){
+export async function register({username,email,password}){
     try{
     const response=await api.post("/api/auth/register",{
         username,email,password
@@ -18,10 +18,10 @@ export async function register(username,email,password){
 }
 
 
-export async function login(login,password){
+export async function login({login,password}){
     try{
         const response=await api.post("/api/auth/login",{
-            email,password
+            login,password
         })
         return response.data
     }catch(err){
